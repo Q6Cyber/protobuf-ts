@@ -38,26 +38,31 @@ describe('PbDatePipe', () => {
 
   it('should accept JavaScript Date', function () {
     let text = pipe.transform(jsDate, 'medium');
+
     expect(text).toBe("Dec 24, 2020, 11:45:59 AM");
   });
 
   it('should accept google.protobuf.Timestamp', function () {
     let text = pipe.transform(timestamp, 'medium');
+
     expect(text).toBe("Dec 24, 2020, 11:45:59 AM");
   });
 
   it('should accept ISO date string', function () {
     let text = pipe.transform(isoDate, 'medium');
+
     expect(text).toBe("Dec 24, 2020, 11:45:59 AM");
   });
 
   it('should accept google.type.DateTime without timeOffset', function () {
     let text = pipe.transform(dateTimeLocal, 'medium');
+
     expect(text).toBe("Dec 24, 2020, 11:45:59 AM");
   });
 
   it('should accept google.type.DateTime with timeOffset', function () {
     let text = pipe.transform(dateTimeOffset, 'medium', 'UTC');
+    
     expect(text).toBe("Dec 24, 2020, 10:45:59 AM");
   });
 

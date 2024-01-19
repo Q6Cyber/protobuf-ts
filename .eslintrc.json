@@ -1,0 +1,57 @@
+{
+    "root": true,
+    "ignorePatterns": ["node_modules"],
+    "plugins": ["jasmine"],
+    "overrides": [
+      {
+        "files": ["*.ts"],
+        "parserOptions": {
+          "project": ["tsconfig.json"],
+          "createDefaultProgram": true
+        },
+        "extends": [
+          "plugin:@angular-eslint/recommended",
+          "plugin:@angular-eslint/template/process-inline-templates",
+          "plugin:jasmine/recommended"
+        ],
+        "rules": {
+          "no-console": 2,
+          "@angular-eslint/directive-selector": [
+            "error",
+            {
+              "type": "attribute",
+              "prefix": "app",
+              "style": "camelCase"
+            }
+          ],
+          "@angular-eslint/component-selector": [
+            "error",
+            {
+              "type": "element",
+              "prefix": "app",
+              "style": "kebab-case"
+            }
+          ],
+          // TODO: Resolve this exceptions
+          "@angular-eslint/no-empty-lifecycle-method": "off",
+          "@angular-eslint/no-input-rename": "off",
+          "@angular-eslint/no-conflicting-lifecycle": "off",
+          "@angular-eslint/no-output-native": "off"
+        }
+      },
+      {
+        "files": ["*.html"],
+        "extends": ["plugin:@angular-eslint/template/recommended"],
+        "rules": {}
+      }
+      // {
+      //   "files": ["src/app/breach-info/breach-info-form/*.spec.ts"],
+      //   "extends": [
+      //     "plugin:@angular-eslint/recommended",
+      //     "plugin:@angular-eslint/template/process-inline-templates"
+      //   ],
+      //   "rules": { "no-focused-tests": 2 }
+      // }
+    ]
+  }
+  

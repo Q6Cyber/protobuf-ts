@@ -25,7 +25,7 @@ export class PbDatePipe implements PipeTransform {
         if (value.timeOffset.oneofKind === "timeZone") {
           throw new Error("Do not understand IANA time zone. Cannot convert to javascript Date.");
         } else if (value.timeOffset.oneofKind === "utcOffset") {
-          let pbOffset = PbLong.from(value.timeOffset.utcOffset.seconds).toNumber() / 60;
+          let pbOffset = PbLong.from(value.timeOffset['utcOffset'].seconds).toNumber() / 60;
           let jsOffset = dt.getTimezoneOffset();
           dt.setMinutes(dt.getMinutes() + (pbOffset - jsOffset))
         }
